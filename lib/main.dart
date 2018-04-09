@@ -101,7 +101,24 @@ class _MyHomePageState extends State<MyHomePage> {
               'hello world',
               style: new TextStyle(fontSize: 32.0)
             ),
-            new MemoTextField()
+            new GestureDetector(
+              child: new Icon(
+                  Icons.add
+              ),
+              onTap: () {
+                print("onTap called");
+                Navigator.of(context).push(new MaterialPageRoute<bool>(
+                    builder: (BuildContext context) {
+                      return new Center(
+                        child: new GestureDetector(
+                            child: new Text('OK'),
+                            onTap: () { Navigator.of(context).pop(true); }
+                        ),
+                      );
+                    }
+                ));
+              }
+            )
           ],
         ),
       ),
